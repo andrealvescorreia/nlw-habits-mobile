@@ -1,5 +1,5 @@
 
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { StatusBar } from 'react-native';
 import {
   useFonts, 
   Inter_400Regular, 
@@ -8,6 +8,7 @@ import {
   Inter_800ExtraBold} from '@expo-google-fonts/inter'
 
 import { Loading } from './src/components/Loading';
+import { Home } from './src/screens/Home';
 
 export default function App() {
   //
@@ -24,25 +25,11 @@ export default function App() {
       <Loading />
     )
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Hello World!</Text>
+  return (// "fragment": <> </>
+    <>
+      <Home />
       <StatusBar barStyle="light-content" backgroundColor='transparent' translucent />
-    </View>
+    </>
   );
 }
 
-
-// no react native, o display flex é ativo por padrão
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#09090A',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text:{
-    color: 'white',
-    fontFamily: 'Inter_700Bold'
-  }
-});
