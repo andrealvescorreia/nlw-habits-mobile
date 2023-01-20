@@ -27,7 +27,7 @@ export function Home(){
                 }
             </View>
             <ScrollView
-                showsHorizontalScrollIndicator={false}// nao mostra a barrinho de scroll
+                showsHorizontalScrollIndicator={false}// nao mostra a barrinha de scroll
                 contentContainerStyle={{ paddingBottom: 100}}
             >
 
