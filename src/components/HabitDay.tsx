@@ -8,6 +8,8 @@ export const DAY_MARGIN_BEWTWEEN = 8;
 
 export const DAY_SIZE = (Dimensions.get('screen').width / WEEK_DAYS) - (SCREEN_HORIZONTAL_PADDING + 5)
 
+
+// quadradinho que representa um dia e seus habitos
 export function HabitDay(){
     return (
         <TouchableOpacity
