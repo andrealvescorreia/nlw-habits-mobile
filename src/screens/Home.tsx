@@ -31,7 +31,6 @@ export function Home() {
       try {
          setLoading(false)
          const response = await api.get('/summary')
-         console.log(response.data)
          setSummary(response.data)
       } catch (error) {
          console.log(error)
