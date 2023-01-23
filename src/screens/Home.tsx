@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { View, Text, ScrollView, Alert } from "react-native";
 import { HabitDay, DAY_SIZE } from "../components/HabitDay";
 import { Header } from "../components/Header";
 import { Loading } from "../components/Loading";
-import { useNavigation } from '@react-navigation/native'
+import { useFocusEffect, useNavigation } from '@react-navigation/native'
 
 import { api } from "../lib/axios";
 import { generateRangeDatesFromYearStart } from "../utils/generate-range-between-dates";
@@ -26,6 +26,7 @@ export function Home() {
    const [summary, setSummary] = useState<SummaryProps | null>(null)
    const { navigate } = useNavigation()
 
+
    async function fetchData() {
       try {
          setLoading(false)
@@ -40,9 +41,11 @@ export function Home() {
       }
    }
 
-   useEffect(() => {
+
+   // o useFocusEffect serve para essa tela atualizar (fetch dos dados) quando for o foco. Ou seja, se o usuario estava na tela de Habit e voltou para essa tela Home, ela será atualizada
+   useFocusEffect(useCallback(() => {// o useCallBack é uma recomendação para maior performance
       fetchData()
-   }, []);
+   }, []));
 
    if(loading){
       return (
